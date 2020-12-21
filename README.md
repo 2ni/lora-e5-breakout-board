@@ -14,6 +14,8 @@ the RDP (read out protection) in the option bytes.
 7. After this procedure, the code is lost and you can flash it with your own
 8. You can change the settings back to mode "normal" and "software reset"
 
+CAUTION: connecting 3.3v on SWD and connecting the usb might lead to issues if the SWD provides power (and not only checks if there is power). In this case don't connect the 3.3v from the SWD connector.
+
 <img src="media/reset-settings.png" width="400" />
 <img src="media/option-bytes.png" width="400" />
 
@@ -34,43 +36,10 @@ the RDP (read out protection) in the option bytes.
 ### toolchain / software
 - [lorawan stack](https://basicmac.io/)
 
-### install cubeProgrammer, cubeIDE on mac (see [fix](https://community.st.com/s/question/0D50X0000BZFma4/stm32cubeide-wont-run-in-macos-1015-catalina))
+### howto install cubeProgrammer, cubeIDE on mac os (see [fix](https://community.st.com/s/question/0D50X0000BZFma4/stm32cubeide-wont-run-in-macos-1015-catalina))
 ```
 cd ~/Downloads/en.stm32cubeprg-mac_v2-6-0 10.04.04
 open SetupSTM32CubeProgrammer-2.6.0.app/Contents/MacOs/SetupSTM32CubeProgrammer-2_6_0_macos
 
 sudo xattr -rd com.apple.quarantine /Applications/STM32CubeIDE.app
 ```
-
-
-
-
-
-### toolchain (not working)
-- [gcc download](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm)
-- [homebrew installation](https://github.com/ARMmbed/homebrew-formulae)
-```
-brew tap ArmMbed/homebrew-formulae
-brew install arm-none-eabi-gcc
-```
-
-
-### installation
-- connect SWDIO, GND, SWCLK , 3.3V, reset
-- 3.3V only needed if USB-C is *not* connected, don't connect both!
-```
-> brew install stlink
-> brew-info --probe
-Found 1 stlink programmers
- serial:     321c130012144d43574d4e00
- hla-serial: "\x32\x1c\x13\x00\x12\x14\x4d\x43\x57\x4d\x4e\x00"
- flash:      0 (pagesize: 0)
- sram:       0
- chipid:     0x0748
-```
-if you get errors with LIBUSB_ERROR_TIMEOUT, you need to upgrade your st-link programmer
-
-### upgrade chinese programmer st-link v2
-- install [st-link utility](https://www.st.com/en/development-tools/stsw-link004.html#get-software) on windows and 32bit [patch](https://community.st.com/s/question/0D53W00000Koh4BSAR/stlink-utility-upgrade-cannot-start-mfc140dll-not-found) to avoid error "missing mcf140.dll"
-- connect st-link clone and update it to the latest version via the ST-LINK navigation entry 
-- you should now be able to run ```st-info --probe```

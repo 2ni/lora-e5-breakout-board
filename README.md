@@ -8,10 +8,10 @@ The module comes with a serial LoRaWAN stack read protected level 1. If you want
 the RDP (read out protection) in the option bytes.
 
 1. Connect the breakout board with the stlink to your computer (SWDIO, GND, SWCLK, 3.3V, RST). Depenging on the stlink you use, you might need an external power source
-3. Start [cubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) and set the mode to "under reset" and reset mode to "hardware reset"
+3. Start [cubeProgrammer](https://www.st.com/en/development-tools/stm32cubeprog.html) and set the mode to "under reset" and reset mode to "hardware reset" (see image below)
 4. Try to connect to the device. If it doesn't work you might add a pulldown button on the reset pin and reset the module before connecting
-5. Click on OB to clear the protection
-6. Save
+5. Click on OB to get to the option bytes to clear the protection (see image below)
+6. Save your changes
 7. After this procedure, the code is lost and you can flash it with your own
 8. You can change the settings back to mode "normal" and "software reset"
 

@@ -1,4 +1,5 @@
 This repo contains a [breakout board](https://easyeda.com/vkbs/lora-e5-breakout-board) for the [LoRa E5](https://wiki.seeedstudio.com/LoRa-E5_STM32WLE5JC_Module/) module by seeedstudio.
+Kudos to Gonzalo, Holger, Andres and Ivan for their support and help!
 
 It also has a collection of information concerning the module, specific installations and LoRaWAN stack.
 
